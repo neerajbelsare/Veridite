@@ -1,5 +1,7 @@
 import re
 import string
+from nltk.tokenize import word_tokenize
+from sklearn.preprocessing import LabelEncoder
 
 
 def preprocess_data(df):
@@ -8,10 +10,16 @@ def preprocess_data(df):
 
     df = df.drop(['id'], axis=1)
 
+    labels = df['rating']
+
     df['title'] = df['title'].apply(clean_text)
     df['category'] = df['category'].apply(clean_text)
     df['account'] = df['account'].apply(clean_text)
     df['post type'] = df['post type'].apply(clean_text)
+
+    df['tokenized_title'] = df['title'].apply(word_tokenize)
+
+    df['rating'] = df['rating'].astype(str)
 
     return df
 

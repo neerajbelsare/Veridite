@@ -1,0 +1,11 @@
+bcrypt
+cryptography
+fastapi
+python-jose
+python-multipart
+SQLAlchemy
+uvicorn
+passlib
+pymysql
+tensorflow
+spacy
